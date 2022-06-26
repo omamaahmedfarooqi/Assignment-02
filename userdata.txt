@@ -1,0 +1,15 @@
+#!/bin/bash
+
+apt update -y
+
+apt install nginx -y
+systemctl start nginx
+
+wget https://www.free-css.com/assets/files/free-css-templates/download/page280/heustonn.zip
+apt install unzip -y
+unzip $PWD/heustonn.zip
+rm -rf /var/www/html/*
+mv $PWD/heustonn-html/* /var/www/html
+
+sed -i "s/HUESTONN - heustonn-html/$OMAMA/g" /var/www/html/index.html
+
